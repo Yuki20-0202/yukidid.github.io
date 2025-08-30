@@ -1,0 +1,363 @@
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  width: 100%;
+  z-index: 10;
+  color: #000000;
+  background-color: #ffffff;
+  font-family: "Yu Gothic", serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0;
+  box-sizing: border-box; 
+  box-shadow: 0 0rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 95%;           /* 線の長さ（例：90%） */
+  height: 2px;
+  background: #ff9900;
+  margin: 0 auto 0 auto; /* 左右中央寄せ */
+  margin-top: 0.1rem;    /* h1下部との間隔 */
+  border-radius: 0.1px;
+}
+
+body{
+	display: flex;
+  flex-direction: column;
+	justify-content: center;
+	padding: 0;
+}
+
+
+.container{
+  flex: 1;
+	width: 100%;
+	margin: 0 auto;
+  padding-top: 10rem;
+}
+
+.mokuzi {
+  list-style: none; /* デフォルト番号を消す */
+  counter-reset: section;
+  border: 2px dotted #41b300; /* 点線の枠を追加 */
+  padding: 1em;
+  margin: 1em 4em 1em 3em; /* 余白 */
+  border-radius: 8px;      /* 角を少し丸く（任意） */
+  background: #fafafa;     /* 背景色を薄く（任意） */
+  z-index: 1;;
+}
+.mokuzi li {
+  counter-increment: section;
+  position: relative;
+}
+.mokuzi li::before {
+  content: counter(section) ".";
+  position: absolute;
+  left: 0;
+  color: #0096aa;
+  font-weight: bold;
+}
+.mokuzi a {
+  display: inline-block;         /* ブロック要素に */          
+  padding-left: 2em; /* 番号分だけテキストを右にずらす */
+  text-decoration: none;
+  position: relative;
+  color: inherit;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* 必要に応じてフォーカス枠を消す */
+}
+.mokuzi li::before {
+  content: counter(section) ".";
+  margin-right: 0.5em;
+  color: #0096aa;
+  font-weight: bold;
+}
+.link-text {
+  position: relative;
+  display: inline-block;
+}
+.link-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -2em;
+  width: calc(100% + 2em);
+  height: 2px;
+  background-color: #000baa41;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mokuzi a.active-highlight .link-text::after {
+  opacity: 1;
+}
+
+
+.honbun {
+  padding: 1em;
+  margin: 1em 3em; /* 上下・左右の余白 */
+  z-index: 1;
+}
+body {
+  counter-reset: heading; /* 見出しカウンターを初期化 */
+ overflow-x: hidden;
+}
+h2 {
+  counter-increment: heading;
+  position: relative;
+  padding-left: 2.5em; /* 番号分＋余白をしっかり取る */
+  scroll-margin-top: 7rem; /* h1の高さ＋余白分 */
+}
+h2::before {
+  content: counter(heading);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #0096aa;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5em;
+  border-radius: 4px;
+}
+h2::after {
+  content: "";
+  display: block;
+  position: absolute; /* ← 追加！ */
+  left: 0;             /* ← 左端から開始 */
+  bottom: -4px;        /* 見出しのすぐ下に表示（調整可） */
+  width: 100%;
+  height: 2px;
+  background: #0096aa;
+  border-radius: 1px;
+}
+
+.course-summary {
+  background-color: #faf0d3;
+  border-left: 6px solid #ffbe0a;
+  padding: 1.5em;
+  margin-bottom: 0;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.8;
+}
+.reference-note {
+  text-align: right;
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0.1em;
+}
+.reference-note a {
+  color: #000000; /* お好みの色コードに変更 */
+  text-decoration: none; /* 下線を消したい場合 */
+}
+.reference-note a:hover {
+  color: #00796b; /* ホバー時に色を変えるとアクセントに */
+  text-decoration: underline; /* ホバー時のみ下線を表示も◎ */
+}
+
+.picture1 {
+  width: 300px;
+  height: auto;
+  margin-left: 1em;
+}
+.listpicture {
+  display: flex;              /* 横並びに配置 */
+  align-items: flex-start;    /* 上揃え（必要なら center や stretch に変更可能） */
+  gap: 2em;                   /* リストと写真の間の余白 */
+}
+
+.image-block {
+  text-align: center;
+  margin-top: 1em;
+}
+section.getthing {
+  text-align: center;
+}
+section.getthing img {
+  display: block;
+  margin: 0.8em auto;
+  max-width: 300px;
+  cursor: pointer; /* タップできる印象に */
+  transition: transform 0.2s ease;
+}
+.image-caption {
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 1.2em;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+a {
+  text-decoration: none;
+}
+a img {
+  border: none;
+}
+.section-label {
+  display: block;         /* ← inline-block → block に変更！ */
+  font-weight: bold;
+  color: #0077cc;
+  font-size: 1rem;
+  margin-top: 1em;
+  text-align: left;       /* ← これで確実に左揃えになります */
+}
+.section-labelf{display: block;         /* ← inline-block → block に変更！ */
+  font-weight: bold;
+  color: #000000;
+  font-size: 1rem;
+  margin-top: 1em;
+  text-align: left; 
+}
+.infomelast {
+  width: 100vw;
+  max-width: 960px;         /* 好みで調整可能（中央の幅） */
+  margin: 0 auto;
+  margin-left: 0; /* 左側の余白をなくす */
+  padding: 16px 20px 30px;
+  box-sizing: border-box;
+}
+.back {
+  width: 100%;
+  background-color: #e9e9e9; /* 背景だけを全幅に */
+}
+
+.infomelast-content {
+  max-width: 960px;         /* 好みで調整可能（中央の幅） */
+  margin: 0 auto;
+  padding: 16px 20px 30px;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.infometitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 12px;
+    display: inline-block;         /* テキストの長さだけ下線を引く */
+    padding-bottom: 20px;
+	position: relative;
+    padding-left: 24px; /* ■の分だけ左に余白を追加 */
+}
+.infometitle::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 30px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.infometitle::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    left: 0;
+    bottom: -1px; /* 下線の位置を調整 */
+    box-shadow: 0 1px 6px rgba(0,0,0,0.4); /* 下線に影を追加 */
+    border-radius: 1px;
+}
+
+.infomelast p {
+	color: #000000;
+	height: 10px;
+	padding-left: 30px; 
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+.honbun {
+    margin: 0.5em;       /* 左右の余白を小さくする */
+    padding: 0.5em 1em;  /* 内側の余白を少し保つ */
+  }
+  
+.container {
+    max-width: 100%;
+    padding: 0 8px;
+    padding-top: 5rem; /* h1の高さ分だけ上に余白を確保 */
+  }
+.mokuzi {
+    margin: 1em 1.5em;/* 上 右 下 左：右だけ1emに */
+  }
+  .mokuzi a {
+    width: 100%; /* スマホではリンクを項目幅いっぱいにする */
+    padding-left: 2em; /* 番号のスペースも調整 */
+    padding-right: 1em; /* ← これが意外と効きます！ */
+    box-sizing: border-box;
+  }
+
+
+  h1 {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  h2 {
+    padding-left: 2em; /* 番号分＋余白をしっかり取る */
+    padding-right: 1.5em;
+    max-width: 100%;
+    scroll-margin-top: 5rem; /* スマホのh1高さ＋余白分 */
+    box-sizing: border-box;
+  }
+  h2::after {
+    width: calc(100% - 3em); /* 左右の余白を除いて線の長さを調整 */
+    left: 1.5em;
+  }
+
+  .listpicture {
+    flex-direction: column;  /* スマホで縦並びにするならこれもおすすめ */
+    gap: 1em;
+  }
+
+  .infometitle {
+    padding-left: 100px; /* 左余白を広げる */
+    font-size: 1.3rem;  /* 文字を大きくする（必要なら） */
+    padding-bottom: 1rem; /* 下線との間隔を狭くする */
+    letter-spacing: 0.1em; /* 文字間隔を広げる */
+  }
+  .infometitle::before {
+    width: 10px;        /* ■を小さくする */
+    height: 28px;
+  }
+
+  .infomelast p {
+    padding-left: 10px;
+    font-size: 0.9rem;
+  }
+}
