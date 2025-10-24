@@ -1,0 +1,135 @@
+/* 基本設定とリセット */
+body {
+    font-family: 'Yu Gothic', YuGothic, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* 背景色 */
+    color: #333; /* 文字色 */
+}
+
+/* ヘッダー */
+header {
+    background-color: #a04040; /* 小豆色や濃い赤など、和風の色 */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* メインコンテンツのレイアウト */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 各文化のまとまり */
+.culture-entry {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 1. 文化の名前 */
+.culture-name {
+    font-size: 2.2em;
+    color: #555;
+    border-bottom: 3px solid #d0a850; /* 和風の金色 */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 2. 文化の紹介一文 */
+.culture-summary {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    border-left: 5px solid #a04040;
+}
+
+/* 画像と詳細を横並びにするエリア */
+.main-content {
+    display: flex;
+    gap: 30px; /* 要素間のスペース */
+    flex-wrap: wrap; /* 画面が小さい時に折り返す */
+}
+
+/* 3. 文化がわかる画像 */
+.image-area {
+    flex: 0 0 350px; /* 基本幅 350px */
+    max-width: 100%;
+}
+
+.culture-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    object-fit: cover; /* 画像の比率を保ちながら表示 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 4, 5, 6, 7 の詳細テキストエリア */
+.text-details {
+    flex: 1; /* 残りのスペースを全て使用 */
+    min-width: 300px;
+}
+
+.detail-section {
+    margin-bottom: 25px;
+}
+
+.detail-section h3 {
+    font-size: 1.4em;
+    color: #a04040;
+    border-left: 5px solid #d0a850;
+    padding-left: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* 7. リンク */
+.culture-link {
+    display: inline-block;
+    background-color: #a04040;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.culture-link:hover {
+    background-color: #c06060;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* レスポンシブ対応 (画面幅が狭い場合) */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* 画像と詳細を縦に並べる */
+    }
+
+    .image-area {
+        flex: auto; /* 幅を自動調整 */
+    }
+}
